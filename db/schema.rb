@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608132444) do
+ActiveRecord::Schema.define(version: 20150608135823) do
 
   create_table "pages", force: :cascade do |t|
     t.integer  "subject_id"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20150608132444) do
 
   add_index "pages", ["permalink"], name: "index_pages_on_permalink"
   add_index "pages", ["subject_id"], name: "index_pages_on_subject_id"
+
+  create_table "section_edits", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "section_id"
+    t.string   "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "section_edits", ["user_id", "section_id"], name: "index_section_edits_on_user_id_and_section_id"
 
   create_table "sections", force: :cascade do |t|
     t.integer  "page_id"
