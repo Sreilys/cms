@@ -1,2 +1,30 @@
 %h1 Subjects#show
-%p Find me in app/views/subjects/show.html.haml
+
+= link_to '<< Back to List', {action: 'index'}
+
+%table{summary: 'Subject detail view'}
+  %tr
+    %th
+      Name
+    %th
+      = @subject.name
+  %tr
+    %th
+      Position
+    %th
+      = @subject.position
+  %tr
+    %th
+      Visible
+    %th
+      = @subject.visible ? 'True' : 'False'
+  %tr
+    %th
+      Created
+    %th
+      = @subject.created_at
+  %tr
+    %th
+      Upadated
+    %th
+      = @subject.updated_at

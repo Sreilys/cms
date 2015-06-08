@@ -1,2 +1,29 @@
 %h1 Subjects#index
-%p Find me in app/views/subjects/index.html.haml
+
+= link_to 'Add New Subject', '#', class: 'action new'
+
+%table{class: 'listing', summary: 'Subject list'}
+  %tr.header
+    %th
+      &nbsp;
+    %th
+      Subject
+    %th
+      Visible
+    %th
+      Pages
+    %th
+      Actions
+  - @subjects.each do |subject|
+    %tr
+      %td
+        = subject.position
+      %td
+        = subject.name
+      %td
+        = subject.visible ? 'Yes' : 'No'
+      %td
+        = subject.pages.size
+      %td
+        = link_to 'Show', {action: 'show', id: subject.id}, class: 'action show'
+        = link_to 'Edit', '#', class: 'action edit'

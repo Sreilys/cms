@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "pages#index"
 
   resources :pages
+  resources :subjects
 
   # get 'pages/index'
 
